@@ -21,7 +21,7 @@ public class RuoliDAOS extends DaoImpl<Ruolo,Integer> {
     @Override
     public String getInsertQuery(Ruolo ruolo) {
         return "INSERT INTO " + this.getTableName() + " x (ruolo,descrizione) "
-                + "VALUES (" + ruolo.getNomeRuolo() + "," + ruolo.getDescrizioneRuolo() + ");";
+                + "VALUES ('" + ruolo.getNomeRuolo() + "','" + ruolo.getDescrizioneRuolo() + "');";
     }
 
     @Override
@@ -32,8 +32,8 @@ public class RuoliDAOS extends DaoImpl<Ruolo,Integer> {
     @Override
     public String getUpdateQuery(Integer id, Ruolo ruolo) {
         return "UPDATE " + this.getTableName()
-                + " x SET x.ruolo = " + ruolo.getNomeRuolo()
-                + " x.descrizione = " + ruolo.getDescrizioneRuolo()
+                + " x SET x.ruolo = '" + ruolo.getNomeRuolo() + "' , "
+                + " x.descrizione = '" + ruolo.getDescrizioneRuolo() + "'"
                 + " WHERE x.id_ruolo = " + id;
     }
 
@@ -42,9 +42,16 @@ public class RuoliDAOS extends DaoImpl<Ruolo,Integer> {
         String nomeRuolo = ruolo.getNomeRuolo();
         String descrizione = ruolo.getDescrizioneRuolo();
         StringBuilder queryBuilder = new StringBuilder("UPDATE " + this.getTableName() + " x SET ");
-        if(nomeRuolo!=null){queryBuilder.append(" x.ruolo = " + nomeRuolo + ",");}
-        if(descrizione!=null){queryBuilder.append(" x.descrizione = " + descrizione);}
-        queryBuilder.append(" WHERE x.id_utente = " + id);
+        if(nomeRuolo!=null){queryBuilder.append(" x.ruolo = '" + nomeRuolo + "',");}
+        if(descrizione!=null){queryBuilder.append(" x.descrizione = '" + descrizione + "'");}
+
+        //cancella ultima virgola "," se esiste
+        int lastIndex = queryBuilder.length() - 1; //lunghezza di ","
+        if(lastIndex > 0 && queryBuilder.substring(lastIndex).equals(",")){
+            queryBuilder.delete(lastIndex,lastIndex+1);
+        }
+
+        queryBuilder.append(" WHERE x.id_ruolo = " + id);
         return queryBuilder.toString();
     }
 

@@ -81,8 +81,15 @@ public class UtentiDAOS extends DaoImpl<Utente,Integer> {
         String email = utente.getEmail();
         String password = utente.getPassword();
         StringBuilder queryBuilder = new StringBuilder("UPDATE " + this.getTableName() + " x SET ");
-        if(email!=null){queryBuilder.append(" x.email = " + email + ",");}
-        if(password!=null){queryBuilder.append(" x.password_hash = " + password);}
+        if(email!=null){queryBuilder.append(" x.email = '" + email + "',");}
+        if(password!=null){queryBuilder.append(" x.password_hash = '" + password + "'");}
+
+        //cancella ultima virgola "," se esiste
+        int lastIndex = queryBuilder.length() - 1; //lunghezza di ","
+        if(lastIndex > 0 && queryBuilder.substring(lastIndex).equals(",")){
+            queryBuilder.delete(lastIndex,lastIndex+1);
+        }
+
         queryBuilder.append(" WHERE x.id_utente = " + id);
         return queryBuilder.toString();
     }
