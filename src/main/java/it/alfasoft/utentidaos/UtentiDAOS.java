@@ -89,12 +89,14 @@ public class UtentiDAOS extends DaoImpl<Utente,Integer> {
 
     @Override
     public String getSearchByStringQuery(String searchText) {
-        return null;
+        StringBuilder qb = new StringBuilder("SELECT * FROM " + this.getTableName() + " x WHERE x.email LIKE '%" + searchText + "%';");
+        return qb.toString();
     }
 
     @Override
     public String getSearchByObjectQuery(Utente searchObj) {
-        return null;
+        StringBuilder qb = new StringBuilder("SELECT * FROM " + this.getTableName() + " x WHERE x.email LIKE '%" + searchObj.getEmail() + "%';");
+        return qb.toString();
     }
 
     public int assegnaCategoria(String s, Integer integer) throws DaoException {

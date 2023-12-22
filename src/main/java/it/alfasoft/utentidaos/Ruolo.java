@@ -9,7 +9,7 @@ public class Ruolo implements IDto<Integer> {
     private Integer idRuolo;
     private String nomeRuolo;
     private String descrizioneRuolo;
-    private Set<Utente> utenti = new HashSet<>();;
+    private Set<Utente> utenti = new HashSet<>();
 
     public Ruolo(){
     }
