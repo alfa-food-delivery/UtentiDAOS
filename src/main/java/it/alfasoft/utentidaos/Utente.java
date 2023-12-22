@@ -9,22 +9,18 @@ public class Utente implements IDto<Integer> {
     private Integer idUtente;
     private String email;
     private String password;
-    private Set<Ruolo> ruoli;
+    private Set<Ruolo> ruoli = new HashSet<>();
 
-    public Utente(){
-        this.ruoli = new HashSet<>();
-    }
+    public Utente(){ }
 
     public Utente(String email, String password){
         this.email = email;
         this.password = password;
-        this.ruoli = new HashSet<>();
     }
     public Utente(int idUtente, String email, String password){
         this.idUtente = idUtente;
         this.email = email;
         this.password = password;
-        this.ruoli = new HashSet<>();
     }
     //GETTERS
     @Override
@@ -43,8 +39,14 @@ public class Utente implements IDto<Integer> {
         this.password = password;
     }
     public void setRuoli(Set<Ruolo> ruoli){ this.ruoli = ruoli;}
-    public void addRuolo(Ruolo role){ this.getRuoli().add(role);}
-    public void removeRuolo(Ruolo role){ this.getRuoli().remove(role);}
+    public void addRuolo(Ruolo role){
+        this.getRuoli().add(role);
+        role.addUtente(this);
+    }
+    public void removeRuolo(Ruolo role){
+        this.getRuoli().remove(role);
+        role.removeUtente(this);
+    }
 
     @Override
     public String toString(){

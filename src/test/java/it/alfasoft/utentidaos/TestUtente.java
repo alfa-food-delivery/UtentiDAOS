@@ -42,7 +42,6 @@ public class TestUtente {
         }
         emailString.append(lastIndex + "@gmail.com");
         Utente utente1 = new Utente(emailString.toString(),"passwordhash1");
-        System.out.println(utente1.toString() + " " + utentiDAO.getInsertQuery(utente1));
         Assertions.assertEquals((int) utentiDAO.create(utente1), lastIndex);
 
         StringBuilder emailString2 = new StringBuilder("esempio");

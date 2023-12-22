@@ -7,8 +7,6 @@ d
 0src/main/java/it/alfasoft/utentidaos/Utente.java,3\1\3158f4dcd6ad489ed5d1e84f3a10bf7e068e4e2d
 _
 /src/main/java/it/alfasoft/utentidaos/Ruolo.java,b\7\b77da0f291cc65c0d3ba17fe1c6f79d9ca3a4ea7
-^
-.src/test/java/it/alfasoft/utentidaos/Test.java,c\7\c75c9b9aab3b880cd45680f072b70db3a6d12179
 c
 3src/main/java/it/alfasoft/utentidaos/RuoliDAOS.java,b\e\be8e7358d765f73ac15cb2c9cd64d499648cb9db
 d
