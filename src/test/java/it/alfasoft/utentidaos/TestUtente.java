@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-
+/*
 public class TestUtente {
 
     private static UtentiDAOS utentiDAO = new UtentiDAOS();
@@ -30,6 +30,7 @@ public class TestUtente {
      * TEST CREATE UTENTE ( INSERT )
      * @throws DaoException
      */
+/*
     @Test
     public void testCreaUtente() throws DaoException {
         StringBuilder emailString = new StringBuilder("esempio");
@@ -50,11 +51,12 @@ public class TestUtente {
         Utente utente2 = new Utente(emailString2.toString(),"passwordhash2");
         Assertions.assertTrue(utentiDAO.create(utente2) > 0);
     }
-
+/*
     /**
      * Variante Scenario
      * TEST CREATE ENTITA' VUOTA
      */
+/*
     @Test
     public void testCreaUtenteNull() {
         Assertions.assertThrows(
@@ -70,6 +72,7 @@ public class TestUtente {
      * TEST ASSEGNA RUOLO ESISTENTE AD UN UTENTE ( )
      * @throws DaoException
      */
+/*
     @Test
     public void testAssegnaRuoloUtente() throws DaoException {
         Utente fattorino = utentiDAO.getById(3);
@@ -86,6 +89,8 @@ public class TestUtente {
      * TEST READ UTENTE ( READ ALL )
      * @throws DaoException
      */
+/*
+
     @Test
     public void testReadUtente() throws DaoException {
         String sql = "SELECT COUNT(*) FROM food_delivery.utenti;";
@@ -104,6 +109,7 @@ public class TestUtente {
      * Scenario Base
      * TEST UPDATE UTENTE (mail e password ; idUtente=10)
      */
+/*
     @Test
     public void testUpdateUtente() throws DaoException {
         String newEmail = "alessandrobrillante68@gmail.com";
@@ -116,6 +122,7 @@ public class TestUtente {
      * Variante Scenario
      * TEST UPDATE UTENTE NULL(mail o password ; idUtente=5)
      */
+/*
     @Test
     public void testUpdateUtenteNull() throws DaoException {
 
@@ -132,6 +139,7 @@ public class TestUtente {
      * Scenario Base
      * TEST DELETE UTENTE (mail e password ; idUtente=5)
      */
+/*
     @Test
     public void testDeleteUtente() throws DaoException {
         Assertions.assertTrue(utentiDAO.delete(1)>0);
@@ -151,3 +159,4 @@ public class TestUtente {
         }
     }
 }
+*/

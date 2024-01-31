@@ -3,6 +3,8 @@ package it.alfasoft.utentidaos;
 import it.alfasoft.daosimple.DaoException;
 import it.alfasoft.daosimple.DaoImpl;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,6 +12,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+@Named("utentiDAO") // Annotazione per indicare il nome del bean, può essere opzionale a seconda delle esigenze
+@ApplicationScoped // Indica che il bean è scoped a livello di applicazione
 public class UtentiDAOS extends DaoImpl<Utente,Integer> {
 
     @Override
